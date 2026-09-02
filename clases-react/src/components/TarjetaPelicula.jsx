@@ -1,13 +1,20 @@
-export default function TarjetaPelicula(props) {
-    const { tituloP, rolP, lenguajesP } = props;
-    
-    return (
-        <>
-            <div>
-                <h2>El titulo de la pelicula es: {titulo} </h2>
-                <h2>El año que salio la pelicula es: {año}</h2>
-                <h2>La vista es: {vista}</h2>
-            </div>
-        </>
-    )
+export default function TarjetaPelicula({ titulo, año, vista }) {
+  /*function fueVista() {
+    if (vista === true) {
+      return "✓";
+    } else {
+      ("");
+    }
+  }*/
+
+  return (
+    <>
+      <h1>
+        {titulo}
+        {vista ? "✓" : "nada"}
+      </h1>
+      <p>{año}</p>
+      <p>{vista}</p>
+    </>
+  );
 }

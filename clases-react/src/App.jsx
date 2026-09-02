@@ -1,6 +1,10 @@
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "./assets/vite.svg";
 import "./App.css";
 import Perfil from "./components/Perfil";
 import TarjetaPelicula from "./components/TarjetaPelicula";
+import Acordeon from "./components/Acordeon";
 
 const peliculas = [
   { id: 1, titulo: "Interstellar", año: 2014, vista: false },
@@ -10,14 +14,33 @@ const peliculas = [
 ];
 
 function App() {
+  const [cuenta, setCuenta] = useState(0);
+
   return (
     <>
+      <h2>Contador:</h2>
+      <div>
+        <p>{cuenta}</p>
+        <button onClick={() => setCuenta(cuenta + 1)}>Sumar</button>
+        <button onClick={() => setCuenta(cuenta - 1)}>Restar</button>
+        <button onClick={() => setCuenta(0)}>Reiniciar</button>
+      </div>
+
       <h1>React - Ejercicios</h1>
       <Perfil
         nombre="Ana"
         rol="Desarrolladora"
         lenguajes={["JavaScript", "React", "CSS"]}
       />
+
+      {peliculas.map((pelicula) => (
+        <TarjetaPelicula
+          key={pelicula.id}
+          titulo={pelicula.titulo}
+          año={pelicula.año}
+          vista={pelicula.vista}
+        />
+      ))}
     </>
   );
 }

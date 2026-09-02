@@ -1,17 +1,17 @@
-export default function Perfil({ nombre, rol, lenguajes }) {
-  const { nombres, rols, lenguajess } = props;
+export default function Perfil(props) {
+  const { nombre, rol, lenguajes } = props;
 
   return (
     <>
       <div className="borde">
-        <h1>Mi nombre es: {nombre}</h1>
-        <h2>Mi rol es: {rol}</h2>
+        <h1>{nombre}</h1>
+        <h2>{rol}</h2>
         <p>Quiero aprender estos tres lenguajes: </p>
-        <ul>
-          <li>{lenguajes[0]}</li>
-          <li>{lenguajes[1]}</li>
-          <li>{lenguajes[2]}</li>
-        </ul>
+        {lenguajes.map((lenguaje, index) => (
+          <div key={index}>
+            <p>{lenguaje}</p>
+          </div>
+        ))}
       </div>
     </>
   );
