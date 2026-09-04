@@ -16,13 +16,21 @@ const peliculas = [
 function App() {
   const [cuenta, setCuenta] = useState(0);
 
+  const restar = () => {
+    if (cuenta > 0) {
+      setCuenta(cuenta - 1);
+    } else {
+      setCuenta(0)
+    }
+  };
+
   return (
     <>
       <h2>Contador:</h2>
       <div>
         <p>{cuenta}</p>
         <button onClick={() => setCuenta(cuenta + 1)}>Sumar</button>
-        <button onClick={() => setCuenta(cuenta - 1)}>Restar</button>
+        <button onClick={() => setCuenta(restar)}>Restar</button>
         <button onClick={() => setCuenta(0)}>Reiniciar</button>
       </div>
 
@@ -31,6 +39,11 @@ function App() {
         nombre="Ana"
         rol="Desarrolladora"
         lenguajes={["JavaScript", "React", "CSS"]}
+      />
+
+      <Acordeon 
+        titulo="Mi serie favorita es..." 
+        contenido="When Life Give You Tangerines" 
       />
 
       {peliculas.map((pelicula) => (
