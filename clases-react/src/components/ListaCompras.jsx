@@ -64,7 +64,9 @@ export default function ListaCompras() {
               onChange={() => marcarComprado(prod.id)}
             />
 
-            {prod.comprado ? <s>{prod.texto}</s> : prod.texto} {/*//el "s" es pa que se tache*/}
+            <span style={{textDecoration: prod.comprado ? "line-through" : "none"}}>
+              {prod.texto}
+            </span>
 
             <button onClick={() => eliminarProducto(prod.id)}>✕</button>
           </li>
