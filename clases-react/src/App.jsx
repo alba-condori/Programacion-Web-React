@@ -5,6 +5,8 @@ import "./App.css";
 import Perfil from "./components/Perfil";
 import TarjetaPelicula from "./components/TarjetaPelicula";
 import Acordeon from "./components/Acordeon";
+import Buscador from "./components/Buscador";
+import ListaCompras from "./components/ListaCompras"
 
 const peliculas = [
   { id: 1, titulo: "Interstellar", año: 2014, vista: false },
@@ -26,24 +28,11 @@ function App() {
 
   return (
     <>
-      <h2>Contador:</h2>
-      <div>
-        <p>{cuenta}</p>
-        <button onClick={() => setCuenta(cuenta + 1)}>Sumar</button>
-        <button onClick={() => setCuenta(restar)}>Restar</button>
-        <button onClick={() => setCuenta(0)}>Reiniciar</button>
-      </div>
-
       <h1>React - Ejercicios</h1>
       <Perfil
         nombre="Ana"
         rol="Desarrolladora"
         lenguajes={["JavaScript", "React", "CSS"]}
-      />
-
-      <Acordeon 
-        titulo="Mi serie favorita es..." 
-        contenido="When Life Give You Tangerines" 
       />
 
       {peliculas.map((pelicula) => (
@@ -54,6 +43,32 @@ function App() {
           vista={pelicula.vista}
         />
       ))}
+      
+      <p>------------------------------------------</p>
+      
+      <h2>Contador:</h2>
+      <div>
+        <p>{cuenta}</p>
+        <button onClick={() => setCuenta(cuenta + 1)}>Sumar</button>
+        <button onClick={() => setCuenta(restar)}>Restar</button>
+        <button onClick={() => setCuenta(0)}>Reiniciar</button>
+      </div>
+
+      <p>------------------------------------------</p>
+      
+      <Acordeon 
+        titulo="Mi serie favorita es..." 
+        contenido="When Life Give You Tangerines" 
+      />
+      
+      <p>------------------------------------------</p>
+      
+      <Buscador/>
+
+      <p>------------------------------------------</p>
+
+      <ListaCompras />
+
     </>
   );
 }
